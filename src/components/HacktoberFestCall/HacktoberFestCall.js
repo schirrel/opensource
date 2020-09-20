@@ -7,10 +7,10 @@ import ButtonLink from "../ButtonLink"
 import UserProgress from "./UserProgress"
 import { Container } from "../Layout"
 
-import hacktoberFestImg from "../../images/hacktoberfest-lg.png"
+import hacktoberFestImg from "../../images/2020/astronauta.png"
+import hacktoberFestCall from "../../images/2020/logo-desktop.png"
 
 const HacktoberFestCallWrapper = styled.section`
-  background-color: #000;
   color: #fff;
   padding: 2rem 0;
 `
@@ -91,8 +91,11 @@ function HacktoberFestCall({ user, isCallOnly }) {
   return (
     <HacktoberFestCallWrapper>
       <CallContainer>
+        <img src={hacktoberFestImg} alt="Hacktoberfest Art" />
         <div>
-          <Title>Hacktoberfest</Title>
+          <Title>
+            <img src={hacktoberFestCall} alt="Hacktoberfest Art" />{" "}
+          </Title>
           <EventHeader1>
             <strong>1 a 31 de outubro</strong>
             <br /> na Globo
@@ -112,7 +115,6 @@ function HacktoberFestCall({ user, isCallOnly }) {
             )}
           </ActionButtons>
         </div>
-        <img src={hacktoberFestImg} alt="Hacktoberfest Art" />
       </CallContainer>
     </HacktoberFestCallWrapper>
   )

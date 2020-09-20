@@ -14,6 +14,8 @@ import TShirtIcon from "../icons/TShirt"
 import { getUser } from "../services/api"
 import { getIssuesUrl } from "../services/github"
 
+import BGImage from "../images/2020/background.png"
+
 const issuesUrl = getIssuesUrl()
 
 const Rules = styled.section`
@@ -96,12 +98,7 @@ function HacktoberFestPage() {
   }, [])
 
   return (
-    <Layout
-      darkHeader={true}
-      darkFooter={true}
-      darkBody={true}
-      noPadding={true}
-    >
+    <Layout backgroundImage={BGImage} noPadding={true}>
       <Seo
         title="Hacktoberfest"
         description="De 1 a 31 de outubro, contribua com qualquer projeto da Globo no github e ganhe uma camiseta exclusiva."

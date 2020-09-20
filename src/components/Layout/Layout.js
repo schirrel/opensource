@@ -17,15 +17,24 @@ const Main = styled.main`
   `}
 `
 
-function Layout({ children, darkHeader, darkFooter, darkBody, noPadding }) {
+function Layout({
+  children,
+  darkHeader,
+  darkFooter,
+  darkBody,
+  noPadding,
+  backgroundImage,
+}) {
   return (
     <React.Fragment>
-      <GlobalStyle />
-      <Header dark={darkHeader} />
-      <Main dark={darkBody} noPadding={noPadding}>
-        {children}
-      </Main>
-      <Footer dark={darkFooter} />
+      <div style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <GlobalStyle />
+        <Header dark={darkHeader} />
+        <Main dark={darkBody} noPadding={noPadding}>
+          {children}
+        </Main>
+        <Footer dark={darkFooter} />
+      </div>
     </React.Fragment>
   )
 }

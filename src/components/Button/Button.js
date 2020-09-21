@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled, { css } from "styled-components"
 import media from "styled-media-query"
+import Colors from "./../../constants/colors"
 
 const ButtonWrapper = styled.button`
   height: 56px;
@@ -35,8 +36,8 @@ const ButtonWrapper = styled.button`
 
   &:hover {
     ${media.greaterThan("large")`
-      border-color: #59b8fd;
-      background-color: #59b8fd;
+      border-color: ${Colors.PRIMARY_COLOR};
+      background-color: ${Colors.PRIMARY_COLOR};
       color: #fff;
     `}
   }

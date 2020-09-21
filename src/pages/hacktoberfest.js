@@ -59,8 +59,6 @@ const RuleText = styled.div`
 `
 
 const Projects = styled.section`
-  border-top: 1px solid #59b8fd;
-  border-bottom: 1px solid #59b8fd;
   padding-top: 5rem;
   padding-bottom: 5rem;
   color: #fff;

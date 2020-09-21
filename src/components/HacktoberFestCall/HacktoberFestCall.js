@@ -11,8 +11,8 @@ import hacktoberFestImg from "../../images/2020/astronauta.png"
 import hacktoberFestCall from "../../images/2020/logo-desktop.png"
 
 const HacktoberFestCallWrapper = styled.section`
+  height: 100vh;
   color: #fff;
-  padding: 2rem 0;
 `
 
 const Title = styled.div`
@@ -22,7 +22,6 @@ const Title = styled.div`
 
   ${media.greaterThan("medium")`
     font-size: 5.5rem;
-    margin-bottom: 48px;
   `}
 
   ${media.greaterThan("large")`
@@ -33,10 +32,10 @@ const Title = styled.div`
 const EventHeader1 = styled.div`
   margin-bottom: 32px;
   line-height: 1.4rem;
+  width: 100%;
 
   ${media.greaterThan("medium")`
     font-size: 1.75rem;
-    margin-bottom: 48px;
     line-height: 2.3rem;
   `}
 
@@ -50,15 +49,18 @@ const EventHeader2 = styled.div`
 
   ${media.greaterThan("medium")`
     font-size: 1.25rem;
-    margin-bottom: 48px;
   `}
 `
 
 const CallContainer = styled(Container)`
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   ${media.greaterThan("medium")`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    flex-direction: row;
   `}
 
   ${media.greaterThan("large")`
@@ -66,20 +68,15 @@ const CallContainer = styled(Container)`
   `}
 
   img {
-    width: 100%;
-
-    ${media.greaterThan("medium")`
-      width: 45%;
-    `}
+    width: 75%;
 
     ${media.greaterThan("large")`
-      width: unset;
+      width: 60%;
     `}
   }
 `
 
 const ActionButtons = styled.div`
-  margin: 3.5rem 0 2.5rem;
   text-align: center;
 
   ${media.greaterThan("medium")`
@@ -92,28 +89,37 @@ function HacktoberFestCall({ user, isCallOnly }) {
     <HacktoberFestCallWrapper>
       <CallContainer>
         <img src={hacktoberFestImg} alt="Hacktoberfest Art" />
-        <div>
-          <Title>
-            <img src={hacktoberFestCall} alt="Hacktoberfest Art" />{" "}
-          </Title>
-          <EventHeader1>
-            <strong>1 a 31 de outubro</strong>
-            <br /> na Globo
-          </EventHeader1>
-          <EventHeader2>Contribua e ganhe uma camiseta exclusiva.</EventHeader2>
-          <ActionButtons>
-            {isCallOnly ? (
-              <ButtonLink href="/hacktoberfest" dark={true}>
-                Saiba mais
-              </ButtonLink>
-            ) : user ? (
-              <UserProgress user={user} />
-            ) : (
-              <ButtonLink href="/login" dark={true}>
-                Participar
-              </ButtonLink>
-            )}
-          </ActionButtons>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}
+        >
+          <img src={hacktoberFestCall} alt="Hacktoberfest Art" />
+          <div>
+            <EventHeader1>
+              <strong>1 a 31 de outubro</strong>
+              <br /> na Globo
+            </EventHeader1>
+            <EventHeader2>
+              Contribua e ganhe uma camiseta exclusiva.
+            </EventHeader2>
+            <ActionButtons>
+              {isCallOnly ? (
+                <ButtonLink href="/hacktoberfest" dark={true}>
+                  Saiba mais
+                </ButtonLink>
+              ) : user ? (
+                <UserProgress user={user} />
+              ) : (
+                <ButtonLink href="/login" dark={true}>
+                  Participar
+                </ButtonLink>
+              )}
+            </ActionButtons>
+          </div>
         </div>
       </CallContainer>
     </HacktoberFestCallWrapper>

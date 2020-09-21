@@ -11,6 +11,8 @@ import iconCommits from "../../images/icons/commits.svg"
 import iconPrs from "../../images/icons/prs.svg"
 import iconIssues from "../../images/icons/issues.svg"
 
+import Colors from "../../constants/colors"
+
 import { getRepoStats } from "../../services/github"
 
 const REPOSITORY_COUNT_ICONS = {
@@ -64,7 +66,7 @@ const ProjectDescription = styled.p`
 
 const ProjectWebSite = styled.a`
   padding: 1.5rem 0;
-  color: #59b8fd;
+  color: ${Colors.PRIMARY_COLOR};
   font-weight: bold;
 
   &:hover {

@@ -45,7 +45,7 @@ build:
 
 build-dev:
 	@${PKG_MANAGER} run build:dev
-	
+
 
 ## deploy to production
 deploy:	build

@@ -25,8 +25,8 @@ const ButtonWrapper = styled.button`
     props.dark
       ? css`
           color: #fff;
-          border-color: #fff;
-          background-color: transparent;
+          border-color: ${Colors.PRIMARY_COLOR};
+          background-color: ${Colors.PRIMARY_COLOR};
         `
       : css`
           color: #000;
@@ -36,8 +36,8 @@ const ButtonWrapper = styled.button`
 
   &:hover {
     ${media.greaterThan("large")`
-      border-color: ${Colors.PRIMARY_COLOR};
-      background-color: ${Colors.PRIMARY_COLOR};
+      border-color: ${Colors.PRIMARY_COLOR_DARKER};
+      background-color: ${Colors.PRIMARY_COLOR_DARKER};
       color: #fff;
     `}
   }

@@ -30,26 +30,42 @@ const Title = styled.div`
 `
 
 const EventHeader1 = styled.div`
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   line-height: 1.4rem;
   width: 100%;
+  text-align: center;
 
   ${media.greaterThan("medium")`
     font-size: 1.75rem;
     line-height: 2.3rem;
+    margin-bottom: 32px;
+    text-align: unset;
   `}
+
 
   strong {
     font-weight: 700;
   }
+
+  span {
+    display: inline;
+    ${media.greaterThan("medium")`
+      display: block;
+  `}
+  }
 `
 
 const EventHeader2 = styled.div`
-  margin-bottom: 32px;
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 0.825rem;
 
   ${media.greaterThan("medium")`
     font-size: 1.25rem;
+    text-align: unset;
+    margin-bottom: 32px;
   `}
+
 `
 
 const CallContainer = styled(Container)`
@@ -68,12 +84,20 @@ const CallContainer = styled(Container)`
   `}
 
   img {
-    width: 75%;
+    width: calc(100vh - 65vh);
+    &.astronaut{
+        ${media.greaterThan("large")`
+          width: 60%;
+      `}
+    }
 
-    ${media.greaterThan("large")`
-      width: 60%;
-    `}
+    &.call{
+      ${media.greaterThan("large")`
+        width: 100%;
+      `}
+    }
   }
+
 `
 
 const ActionButtons = styled.div`
@@ -88,7 +112,7 @@ function HacktoberFestCall({ user, isCallOnly }) {
   return (
     <HacktoberFestCallWrapper>
       <CallContainer>
-        <img src={hacktoberFestImg} alt="Hacktoberfest Art" />
+        <img className="astronaut" src={hacktoberFestImg} alt="Hacktoberfest Art" />
         <div
           style={{
             display: "flex",
@@ -97,11 +121,11 @@ function HacktoberFestCall({ user, isCallOnly }) {
             flexDirection: "column",
           }}
         >
-          <img src={hacktoberFestCall} alt="Hacktoberfest Art" />
-          <div>
+          <img className="call" src={hacktoberFestCall} alt="Hacktoberfest Art" />
+          <div className="info">
             <EventHeader1>
-              <strong>1 a 31 de outubro</strong>
-              <br /> na Globo
+              <strong>1 a 31 de outubro </strong>
+              <span>na Globo</span>
             </EventHeader1>
             <EventHeader2>
               Contribua e ganhe uma camiseta exclusiva.

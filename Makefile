@@ -53,7 +53,7 @@ deploy:	build
 
 ## deploy to development
 deploy-dev:	build-dev
-	tsuru app-deploy public -a dev-opensource-web
+	tsuru app-deploy public -a opensource-web-dev
 
 ## clean docker-compose images
 docker-clean:

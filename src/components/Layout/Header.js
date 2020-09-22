@@ -21,7 +21,7 @@ const HeaderWrapper = styled.header`
   ${props =>
     props.dark &&
     css`
-      background-color: #000000;
+      background-color: unset;
     `}
 `
 

@@ -66,7 +66,7 @@ const Projects = styled.section`
 `
 
 const ProjectsTitle = styled.div`
-  font-family: "Bigelow Rules", cursive;
+  font-weight: bolder;
   font-size: 2.25rem;
 
   ${media.greaterThan("medium")`
@@ -96,7 +96,7 @@ function HacktoberFestPage() {
   }, [])
 
   return (
-    <Layout backgroundImage={BGImage} noPadding={true}>
+    <Layout darkHeader={true} darkFooter={true} backgroundImage={BGImage} noPadding={true}>
       <Seo
         title="Hacktoberfest"
         description="De 1 a 31 de outubro, contribua com qualquer projeto da Globo no github e ganhe uma camiseta exclusiva."

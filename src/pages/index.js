@@ -9,8 +9,12 @@ import ProjectList from "../components/ProjectList"
 import Project from "../components/Project"
 import HacktoberFestCall from "../components/HacktoberFestCall"
 
-import bgImageTopSm from "../images/astrunaut-front-sm.jpg"
-import bgImageTopLg from "../images/astrunaut-front-lg.jpg"
+import Colors from './../constants/colors'
+
+import ByTheCodeImage from '../images/2020/together-by-the-code.png'
+import BGImage from "../images/2020/background.png"
+import GirlImage from "../images/2020/girl.png"
+
 
 const blink = keyframes`
   0% {opacity: 0;}
@@ -22,29 +26,24 @@ const blink = keyframes`
 
 const HeroWrapper = styled.div`
   color: #fff;
-  background-color: #000;
   padding-top: 2.3rem;
-  height: 688px;
-  background-image: url(${bgImageTopSm});
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom center;
+  display: flex;
+  flex-direction: column-reverse;
 
   ${media.greaterThan("medium")`
-    background-image: url(${bgImageTopLg});
-    background-size: cover;
-    background-position: left;
-    height: 608px;
+    flex-direction: column;
   `}
 
-  ${media.greaterThan("large")`
-    height: 880px;
+  ${media.greaterThan("medium")`
     background-color: transparent;
     background-position: center;
+    flex-direction: row;
   `}
 
   ${media.greaterThan("1680px")`
-    height: 1580px;
     background-position-y: -150px;
   `}
 
@@ -53,6 +52,8 @@ const HeroWrapper = styled.div`
     font-size: 2.25rem;
     margin-bottom: 1.5rem;
     line-height: normal;
+    text-align: right;
+    color: ${Colors.PRIMARY_COLOR}
 
     ${media.greaterThan("medium")`
       font-size: 3.75rem;
@@ -70,17 +71,31 @@ const HeroWrapper = styled.div`
   i {
     animation: ${blink} 1s linear infinite;
   }
+
+  div.girl img {
+    width: calc(100vw - 15vw);
+    ${media.greaterThan("medium")`
+      width: 100%;
+    `}
+
+  }
 `
 
 const HeroText = styled.div`
+  display: flex;
   ${media.greaterThan("medium")`
-    width: 26.75rem;
-    padding-top: 66px;
+    align-items: flex-end;
+    flex-direction: column;
   `}
 
-  ${media.greaterThan("large")`
-    padding-top: 130px;
-  `}
+  img {
+    width: 100%;
+    ${media.greaterThan("medium")`
+      width: unset;
+      margin-top: -20%;
+    `}
+  }
+
 `
 
 const ProjectsContainer = styled(Container)`
@@ -118,22 +133,28 @@ function IndexPage() {
   const projects = data.allFeaturedProjectsJson.edges.map(edge => edge.node)
 
   return (
-    <Layout darkHeader={true} darkFooter={false} noPadding={true}>
+    <Layout backgroundImage={BGImage} darkHeader={true} darkFooter={true} noPadding={true}>
       <Seo />
-      <HeroWrapper>
         <Container>
-          <HeroText data-testid="hero-text">
-            <h1>Addicted Developers</h1>
-            <span>
-              unidos pelo código<i>_</i>
-            </span>
-          </HeroText>
+          <HeroWrapper>
+            <div className="girl">
+              <img src={GirlImage} alt="Index Banner"/>
+            </div>
+            <HeroText data-testid="hero-text">
+              <div style={{flex: 2}}>
+                <h1>Addicted Developers</h1>
+              </div>
+              <div style={{flex: 2}}>
+                  <img width="100%" src={ByTheCodeImage} alt="By the code"/>
+              </div>
+            </HeroText>
+            </HeroWrapper>
         </Container>
-      </HeroWrapper>
       <ProjectsContainer>
         <ProjectList hasShowAll={true}>
           {projects.map((project, i) => (
             <Project
+              home
               key={project.id}
               isFirst={i === 0}
               isFeatured={true}

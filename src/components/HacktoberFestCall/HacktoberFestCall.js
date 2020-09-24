@@ -9,25 +9,18 @@ import { Container } from "../Layout"
 
 import hacktoberFestImg from "../../images/2020/astronauta.png"
 import hacktoberFestCall from "../../images/2020/logo-desktop.png"
+import hacktoberFestCallOnly from '../../images/2020/hacktober-callonly.png'
+import BigBracketImage from "../../images/2020/big-bracket.svg";
+import year from '../../images/2020/year.png'
 
 const HacktoberFestCallWrapper = styled.section`
-  height: 100vh;
+  margin-bottom: 20px;
+  ${media.greaterThan("medium")`
+    height: ${props => props.isCallOnly ? "unset" : "100vh"};
+  `}
   color: #fff;
 `
 
-const Title = styled.div`
-  margin: 2rem 0 32px 0;
-  font-family: "Bigelow Rules", cursive;
-  font-size: 4.5rem;
-
-  ${media.greaterThan("medium")`
-    font-size: 5.5rem;
-  `}
-
-  ${media.greaterThan("large")`
-    font-size: 7.5rem;
-  `}
-`
 
 const EventHeader1 = styled.div`
   margin-bottom: 16px;
@@ -69,13 +62,12 @@ const EventHeader2 = styled.div`
 `
 
 const CallContainer = styled(Container)`
-  flex-direction: column;
+  flex-direction: ${props => props.isCallOnly ? "column-reverse" : "column"};
   display: flex;
   justify-content: center;
   align-items: center;
 
-  ${media.greaterThan("medium")`
-
+  ${media.greaterThan("large")`
     flex-direction: row;
   `}
 
@@ -84,20 +76,43 @@ const CallContainer = styled(Container)`
   `}
 
   img {
-    width: calc(100vh - 65vh);
+    width: calc(100vw - 8vw);
     &.astronaut{
-        ${media.greaterThan("large")`
+        ${media.greaterThan("medium")`
           width: 60%;
       `}
     }
 
     &.call{
-      ${media.greaterThan("large")`
+      ${media.greaterThan("medium")`
         width: 100%;
       `}
     }
   }
+`
 
+const YearContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+  img {
+    width: calc(100vw -  50vw);
+    ${media.greaterThan("large")`
+      width: 100%;
+    `}
+  }
+`
+
+const BigBracketContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  img {
+    width: calc(100vw -  5vw);
+    ${media.greaterThan("large")`
+      max-width: 1300px;
+      width: 100%;
+    `}
+  }
 `
 
 const ActionButtons = styled.div`
@@ -110,8 +125,9 @@ const ActionButtons = styled.div`
 
 function HacktoberFestCall({ user, isCallOnly }) {
   return (
-    <HacktoberFestCallWrapper>
-      <CallContainer>
+    <HacktoberFestCallWrapper isCallOnly={isCallOnly}>
+      {isCallOnly && <BigBracketContainer> <img src={BigBracketImage} alt="Big Bracket"/> </BigBracketContainer>}
+      <CallContainer isCallOnly={isCallOnly}>
         <img className="astronaut" src={hacktoberFestImg} alt="Hacktoberfest Art" />
         <div
           style={{
@@ -121,7 +137,8 @@ function HacktoberFestCall({ user, isCallOnly }) {
             flexDirection: "column",
           }}
         >
-          <img className="call" src={hacktoberFestCall} alt="Hacktoberfest Art" />
+          <img className="call" src={isCallOnly? hacktoberFestCallOnly : hacktoberFestCall} alt="Hacktoberfest Art" />
+          {isCallOnly && <YearContainer> <img src={year} alt="Hacktoberfest Art" /> </YearContainer> }
           <div className="info">
             <EventHeader1>
               <strong>1 a 31 de outubro </strong>

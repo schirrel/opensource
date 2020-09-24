@@ -29,9 +29,9 @@ const ButtonWrapper = styled.button`
           background-color: ${Colors.PRIMARY_COLOR};
         `
       : css`
-          color: #000;
-          border-color: #000;
-          background-color: #fff;
+          color: #fff;
+          border-color: ${Colors.PRIMARY_COLOR};
+          background-color: ${Colors.PRIMARY_COLOR};
         `}
 
   &:hover {

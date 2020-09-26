@@ -18,6 +18,8 @@ import BGImage from "../images/2020/background.png"
 
 const issuesUrl = getIssuesUrl()
 
+const BGColor = "#201c24"
+
 const Rules = styled.section`
   display: flex;
   flex-direction: column;
@@ -96,7 +98,13 @@ function HacktoberFestPage() {
   }, [])
 
   return (
-    <Layout darkHeader={true} darkFooter={true} backgroundImage={BGImage} noPadding={true}>
+    <Layout
+      darkHeader={true}
+      darkFooter={true}
+      backgroundImage={BGImage}
+      noPadding={true}
+      backgroundColor={BGColor}
+    >
       <Seo
         title="Hacktoberfest"
         description="De 1 a 31 de outubro, contribua com qualquer projeto da Globo no github e ganhe uma camiseta exclusiva."

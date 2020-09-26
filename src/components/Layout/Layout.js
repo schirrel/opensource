@@ -24,10 +24,16 @@ function Layout({
   darkBody,
   noPadding,
   backgroundImage,
+  backgroundColor,
 }) {
   return (
     <React.Fragment>
-      <div style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundColor: backgroundColor,
+        }}
+      >
         <GlobalStyle />
         <Header dark={darkHeader} />
         <Main dark={darkBody} noPadding={noPadding}>

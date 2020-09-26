@@ -129,7 +129,7 @@ function HacktoberFestPage() {
               <TShirtIcon />
             </RuleIcon>
             <RuleText>
-              Os <strong>200 primeiros inscritos</strong>,
+              Os <strong>100 primeiros inscritos</strong>,
               <br /> que completarem os requisitos mínimos,
               <br /> ganharão uma camiseta exclusiva a ser
               <br /> entregue dentro do território brasileiro.
@@ -137,6 +137,15 @@ function HacktoberFestPage() {
           </Rule>
         </Rules>
       </Container>
+      <Projects>
+        <Container>
+          <ProjectsTitle>Regras para participação</ProjectsTitle>
+          <ProjectsText>
+            Pull requests podem ser feitos em qualquer <strong>projeto</strong>{" "}
+            da Globo
+          </ProjectsText>
+        </Container>
+      </Projects>
       <Projects>
         <Container>
           <ProjectsTitle>Projetos</ProjectsTitle>

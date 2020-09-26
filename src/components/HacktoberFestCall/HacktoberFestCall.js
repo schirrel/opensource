@@ -15,9 +15,6 @@ import year from '../../images/2020/year.png'
 
 const HacktoberFestCallWrapper = styled.section`
   margin-bottom: 20px;
-  ${media.greaterThan("medium")`
-    height: ${props => props.isCallOnly ? "unset" : "100vh"};
-  `}
   color: #fff;
 `
 
@@ -149,7 +146,7 @@ function HacktoberFestCall({ user, isCallOnly }) {
             </EventHeader2>
             <ActionButtons>
               {isCallOnly ? (
-                <ButtonLink href="/hacktoberfest" dark={true}>
+                <ButtonLink href="/hacktoberfest/" dark={true}>
                   Saiba mais
                 </ButtonLink>
               ) : user ? (

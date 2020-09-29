@@ -147,15 +147,6 @@ function HacktoberFestPage() {
       </Container>
       <Projects>
         <Container>
-          <ProjectsTitle>Regras para participação</ProjectsTitle>
-          <ProjectsText>
-            Pull requests podem ser feitos em qualquer <strong>projeto</strong>{" "}
-            da Globo
-          </ProjectsText>
-        </Container>
-      </Projects>
-      <Projects>
-        <Container>
           <ProjectsTitle>Projetos</ProjectsTitle>
           <ProjectsText>
             Pull requests podem ser feitos em qualquer <strong>projeto</strong>{" "}

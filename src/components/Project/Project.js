@@ -59,7 +59,6 @@ const ProjectDetails = styled.div`
 
   ${media.greaterThan("medium")`
     visibility: visible;
-    justify-content: flex-end;
     ${props => props.isFeatured && `
       display: inherit;
     `}

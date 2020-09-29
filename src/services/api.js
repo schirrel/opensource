@@ -97,7 +97,7 @@ async function getProjects() {
             featured: project.featured,
             repoURL: project.repositoryUrl,
             siteURL: project.website,
-            docsURL: project.website,
+            docsURL: project.documentationUrl,
             image: {
               publicURL: project.imageUrl
             }

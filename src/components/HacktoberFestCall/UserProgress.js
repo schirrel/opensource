@@ -125,9 +125,7 @@ function UserProgress({ user }) {
   const { achievements } = hacktoberfest.progress
 
   // Used for testing
-  const isStaff = ["arturfsousa", "guilhermebr", "marcelometal"].includes(
-    user.githubUser
-  )
+  const isStaff = [].includes(user.githubUser)
 
   const completed =
     isStaff ||
